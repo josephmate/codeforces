@@ -13,15 +13,10 @@ public class Main {
     }
 
     long count = 0;
-    for (int r = 1; r < n; r++) {
-      for (int l = 1; l <= r; l++) {
+    for (int r = 0; r < n; r++) {
+      for (int l = 0; l <= r; l++) {
         int mid = (l+r-1)/2;
-        if ( (r-l) >= 2 && (r-l+1)%2==0
-            && mid + 1 < n) {
-          int rIdx = r - 1;
-          int lIdx = l - 1;
-          int midIdx = mid - 1;
-          System.out.println(String.format("l=%d r=%d mid=%d", l , r , mid));
+        if ( (r-l) >= 1 && (r-l+1)%2==0) {
           if (xors[l][mid] == xors[mid+1][r]) {
             count++;
           }
