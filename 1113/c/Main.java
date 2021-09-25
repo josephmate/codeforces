@@ -3,23 +3,20 @@ import java.util.*;
 public class Main {
   
   private static long solve(int n, int [] a) {
-    int [][] xors = new int[n][n];
+    long count = 0;
     for (int i = 0; i < n; i++) {
       int xor = 0;
       for (int j = i; j < n; j++) {
         xor = xor ^ a[j];
-        xors[i][j] = xor;
-      }
-    }
-
-    long count = 0;
-    for (int r = 0; r < n; r++) {
-      for (int l = 0; l <= r; l++) {
-        int mid = (l+r-1)/2;
-        if ( (r-l) >= 1 && (r-l+1)%2==0) {
-          if (xors[l][mid] == xors[mid+1][r]) {
-            count++;
-          }
+        // dynamic programming method would use 38GB of memory!
+        // realized that if a ^ b ^ c = d ^ e ^ f
+        // then a ^ b ^ c ^ d ^ e ^ f = 0 !
+        // so we just need to count the 0s and the dynamic programming is no longer necessary.
+        if (  j-i >=1
+              && (j-i + 1)%2 == 0
+              && xor == 0
+        ) {
+          count++;
         }
       }
     }
