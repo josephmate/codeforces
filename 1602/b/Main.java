@@ -19,6 +19,18 @@ public class Main {
       for (int j = 0; j < current.length; j++) {
         current[j] = counts.getOrDefault(prev[j], 0);
       }
+
+      // check if prev is the same as current. if so then the result will never change
+      boolean same = true;
+      for (int j = 0; j < initialValues.length; j++) {
+        if (prev[j] != current[j]) {
+          same = false;
+        }
+      }
+      if (same) {
+        System.out.println(current[a_x]);
+        return;
+      }
     }
     System.out.println(current[a_x]);
   }
