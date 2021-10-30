@@ -9,7 +9,7 @@ public class Main {
         System.out.print(i);
         System.out.print(" ");
         System.out.println(
-                (indexOfChar >= 1 ? s.substring(0, indexOfChar-1) : "")
+                (indexOfChar >= 1 ? s.substring(0, indexOfChar) : "")
                 + (indexOfChar <= s.length() - 2 ? s.substring(indexOfChar+1) : "")
         );
         return;
